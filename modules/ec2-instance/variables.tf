@@ -11,7 +11,7 @@ variable name          {}
 variable instance_type {}
 
 locals {
-    security_group_name = "sg-${var.name}"
+    security_group_name = "security-group-${var.name}"
     amis                = {
         amazon-linux-2       = "ami-02e136e904f3da870"
         deep-learning-ubuntu = "ami-0e3c68b57d50caf64"
