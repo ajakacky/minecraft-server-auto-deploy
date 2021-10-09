@@ -7,7 +7,7 @@ resource aws_security_group ec2_security_group {
 }
 
 resource aws_security_group_rule rules {
-  count             = local.rules
+  count             = length(local.rules)
   type              = local.rules[count.index].type
   from_port         = local.rules[count.index].from_port
   to_port           = local.rules[count.index].to_port
