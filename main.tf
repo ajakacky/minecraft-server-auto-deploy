@@ -7,5 +7,7 @@ module minecraft_instance {
   instance_type = each.value.type
   key_name      = each.value.key_name
   user_data     = file(each.value.user_data)
+  admin_ips     = var.admin_ips
+  member_ips    = var.member_ips
   tags          = local.deploy.tags
 }

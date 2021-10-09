@@ -49,6 +49,14 @@ locals {
       protocol          = "tcp"
       cidr_blocks       = var.member_ips
       security_group_id = aws_security_group.ec2_security_group.id
+    },
+    {
+      type              = "egress"
+      from_port         = 443
+      to_port           = 443
+      protocol          = "tcp"
+      cidr_blocks       = ["99.86.230.129/32"]
+      security_group_id = aws_security_group.ec2_security_group.id
     }
   ]
 }
