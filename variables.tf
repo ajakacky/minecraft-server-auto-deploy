@@ -4,5 +4,5 @@ variable subnet_id  {}
 variable vpc_id     {}
 
 locals {
-    deploy = yamldecode(file("userdata.sh"))
+    deploy = yamldecode(file("deploy.yml"))
 }
