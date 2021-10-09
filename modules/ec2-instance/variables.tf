@@ -11,10 +11,44 @@ variable name          {}
 variable instance_type {}
 
 locals {
-    security_group_name = "security-group-${var.name}"
-    amis                = {
-        amazon-linux-2       = "ami-02e136e904f3da870"
-        deep-learning-ubuntu = "ami-0e3c68b57d50caf64"
-        ubuntu               = "ami-0747bdcabd34c712a"
+  security_group_name = "security-group-${var.name}"
+  amis                = {
+    amazon-linux-2       = "ami-02e136e904f3da870"
+    deep-learning-ubuntu = "ami-0e3c68b57d50caf64"
+    ubuntu               = "ami-0747bdcabd34c712a"
+  }
+  rules = [
+    {
+      type              = "ingress"
+      from_port         = 22
+      to_port           = 22
+      protocol          = "tcp"
+      cidr_blocks       = var.admin_ips
+      security_group_id = aws_security_group.ec2_security_group.id
+    },
+    {
+      type              = "ingress"
+      from_port         = 25565
+      to_port           = 25565
+      protocol          = "tcp"
+      cidr_blocks       = var.member_ips
+      security_group_id = aws_security_group.ec2_security_group.id
+    },
+    {
+      type              = "egress"
+      from_port         = 22
+      to_port           = 22
+      protocol          = "tcp"
+      cidr_blocks       = var.admin_ips
+      security_group_id = aws_security_group.ec2_security_group.id
+    },
+    {
+      type              = "egress"
+      from_port         = 25565
+      to_port           = 25565
+      protocol          = "tcp"
+      cidr_blocks       = var.member_ips
+      security_group_id = aws_security_group.ec2_security_group.id
     }
+  ]
 }
