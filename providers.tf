@@ -14,11 +14,11 @@ provider "aws" {
 terraform {
   backend "remote" {
     # The name of your Terraform Cloud organization.
-    organization = "example-organization"
+    organization = "minecraft-auto-deploy"
 
     # The name of the Terraform Cloud workspace to store Terraform state files in.
     workspaces {
-      name = "example-workspace"
+      name = "minecraft-server-auto-deploy"
     }
   }
 }
