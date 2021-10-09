@@ -3,14 +3,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# terraform {
-#   backend "s3" {
-#     bucket = "terraform-minecraft-deploy-backend"
-#     key    = "terraform/terraform.tfstate"
-#     region = "us-east-1"
-#   }
-# }
-
 terraform {
   backend "remote" {
     # The name of your Terraform Cloud organization.
