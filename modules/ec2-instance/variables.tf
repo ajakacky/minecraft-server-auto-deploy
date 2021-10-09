@@ -3,6 +3,7 @@ variable ip_addresses  { default = {} }
 variable ami_type      { default = "amazon-linux-2" }
 variable admin_ips     { default = ["0.0.0.0/0"] }
 variable member_ips    { default = ["0.0.0.0/0"] }
+variable key_name      {}
 variable subnet_id     {}
 variable vpc_id        {}
 variable name          {}

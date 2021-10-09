@@ -26,8 +26,8 @@ resource aws_instance instance {
   ami                    = local.amis[var.ami_type]
   instance_type          = var.instance_type
   user_data              = var.user_data
+  key_name               = var.key_name
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [ aws_security_group.ec2_security_group.id ]
-
   tags = var.tags
 }
