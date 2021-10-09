@@ -5,4 +5,5 @@ module minecraft_instance {
   instance_type = each.value.type
   key_name      = each.value.key_name
   user_data     = file(each.value.user_data)
+  tags          = local.deploy.tags
 }
