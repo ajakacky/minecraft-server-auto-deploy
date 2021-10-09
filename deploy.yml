@@ -1,0 +1,8 @@
+instances:
+  test-server:
+    type: t3.medium
+    count: 1
+    admin_ips: "192.168.1.48/32"
+
+tags:
+  Name: Minecraft server
