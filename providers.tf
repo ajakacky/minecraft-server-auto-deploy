@@ -5,6 +5,7 @@ provider "aws" {
 
 terraform {
   backend "remote" {
+    region       = "us-east-1"
     # The name of your Terraform Cloud organization.
     organization = "minecraft-auto-deploy"
 
