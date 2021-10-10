@@ -1,18 +1,18 @@
 #!/bin/bash
-
-sudo apt update -y
-sudo apt install default-jdk -y
+sudo su
+apt update -y
+apt install default-jdk -y
 
 java -version
 
 mkdir /opt/minecraft/
 mkdir /opt/minecraft/server/
 cd /opt/minecraft/server/
-wget https://launcher.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar
+wget https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar
 
 java -Xmx1024M -Xms1024M -jar server.jar nogui
 
-sudo sed -i 's/eula=false/eula=true/' eula.txt
+sed -i 's/eula=false/eula=true/' eula.txt
 
 cat <<EOT >> /etc/systemd/system/minecraft.service
 [Unit]
