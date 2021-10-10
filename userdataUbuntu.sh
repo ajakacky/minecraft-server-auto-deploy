@@ -2,7 +2,7 @@
 
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install default-jdk openjdk-11-jre-headless -y
+sudo apt install openjdk-17-jdk-headless -y
 
 java -version
 
@@ -11,7 +11,7 @@ mkdir /opt/minecraft/server/
 cd /opt/minecraft/server/
 wget https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar
 
-java -Xmx1024M -Xms1024M -jar server.jar nogui
+sudo java -Xmx1024M -Xms1024M -jar server.jar nogui
 
 sudo sed -i 's/eula=false/eula=true/' eula.txt
 
