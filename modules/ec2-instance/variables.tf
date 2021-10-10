@@ -11,8 +11,11 @@ variable name          {}
 variable instance_type {}
 
 locals {
-  security_group_name = "security-group-${var.name}"
-  amis                = {
+  security_group_name   = "security-group-${var.name}"
+  iam_role_name         = "iam-role-${var.name}"
+  iam_policy_name       = "iam-policy-${var.name}"
+  instance_profile_name = "instance-profile-${var.name}"
+  amis                  = {
     amazon-linux-2       = "ami-02e136e904f3da870"
     deep-learning-ubuntu = "ami-0e3c68b57d50caf64"
     ubuntu               = "ami-0747bdcabd34c712a"
@@ -55,7 +58,7 @@ locals {
       from_port         = 443
       to_port           = 443
       protocol          = "tcp"
-      cidr_blocks       = ["99.86.230.129/32"]
+      cidr_blocks       = ["0.0.0.0/0"]
       security_group_id = aws_security_group.ec2_security_group.id
     }
   ]
