@@ -41,7 +41,7 @@ InaccessibleDirectories=/root /sys /srv /media -/lost+found
 NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft/server
 ReadWriteDirectories=/opt/minecraft/server
-ExecStart=sudo /usr/bin/java -Xmx1024M -Xms1024M -jar server.jar nogui
+ExecStart=sudo /usr/bin/java -Xmx1024M -Xms1024M -jar /opt/minecraft/server/server.jar nogui
 ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password stop
 
 [Install]
