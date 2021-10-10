@@ -58,7 +58,7 @@ locals {
       from_port         = 443
       to_port           = 443
       protocol          = "tcp"
-      cidr_blocks       = ["99.86.230.129/32"]
+      cidr_blocks       = ["0.0.0.0/0"]
       security_group_id = aws_security_group.ec2_security_group.id
     }
   ]
