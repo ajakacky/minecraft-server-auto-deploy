@@ -101,7 +101,7 @@ resource aws_instance instance {
   user_data              = var.user_data
   key_name               = var.key_name
   subnet_id              = var.subnet_id
-  iam_instance_profile   = aws_iam_instance_profile.profile.arn
+  iam_instance_profile   = aws_iam_instance_profile.profile.name
   vpc_security_group_ids = [ aws_security_group.ec2_security_group.id ]
   tags = var.tags
 }
