@@ -1,7 +1,7 @@
 #!/bin/bash
-sudo su
-apt update -y
-apt install default-jdk -y
+
+sudo apt update -y
+sudo apt install default-jdk -y
 
 java -version
 
@@ -12,9 +12,9 @@ wget https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf2022619449
 
 java -Xmx1024M -Xms1024M -jar server.jar nogui
 
-sed -i 's/eula=false/eula=true/' eula.txt
+sudo sed -i 's/eula=false/eula=true/' eula.txt
 
-cat <<EOT >> /etc/systemd/system/minecraft.service
+sudo cat <<EOT >> /etc/systemd/system/minecraft.service
 [Unit]
 Description=Minecraft Server
 After=network.target
@@ -35,5 +35,5 @@ ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-pass
 WantedBy=multi-user.target
 EOT
 
-chmod 664 /etc/systemd/system/minecraft.service
-systemctl daemon-reload
+sudo chmod 664 /etc/systemd/system/minecraft.service
+sudo systemctl daemon-reload
