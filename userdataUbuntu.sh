@@ -1,7 +1,8 @@
 #!/bin/bash
 
 sudo apt update -y
-sudo apt install default-jdk -y
+sudo apt upgrade -y
+sudo apt install default-jdk openjdk-11-jre-headless -y
 
 java -version
 
@@ -28,7 +29,7 @@ InaccessibleDirectories=/root /sys /srv /media -/lost+found
 NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft/server
 ReadWriteDirectories=/opt/minecraft/server
-ExecStart=java -Xmx1024M -Xms1024M -jar server.jar nogui
+ExecStart=sudo java -Xmx1024M -Xms1024M -jar server.jar nogui
 ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password stop
 
 [Install]
