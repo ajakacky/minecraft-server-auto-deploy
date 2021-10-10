@@ -1,5 +1,5 @@
-variable member_ips { sensitive = true }
-variable admin_ips  { sensitive = true }
+variable member_ips {}
+variable admin_ips  {}
 variable subnet_id  {}
 variable vpc_id     {}
 variable region     {}

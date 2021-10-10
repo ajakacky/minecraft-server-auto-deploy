@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo yum install java-1.8.0-openjdk
+sudo yum install java-1.8.0-openjdk -y
 sudo adduser minecraft
 
 sudo su
