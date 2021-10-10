@@ -9,5 +9,6 @@ module minecraft_instance {
   user_data     = file(each.value.user_data)
   admin_ips     = var.admin_ips
   member_ips    = var.member_ips
+  ami_type      = "ubuntu"
   tags          = local.deploy.tags
 }
