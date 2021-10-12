@@ -30,19 +30,26 @@ sudo sed -i 's/eula=false/eula=true/' eula.txt
 sudo cat <<EOT >> /etc/systemd/system/minecraft.service
 [Unit]
 Description=Minecraft Server
-After=network.target
+After=syslog.target network.target
 
 [Service]
+# Ensure to set the correct user and working directory (installation directory of your server) here
 User=minecraft
-Nice=5
-KillMode=none
-SuccessExitStatus=0 1
-InaccessibleDirectories=/root /sys /srv /media -/lost+found
-NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft/server
-ReadWriteDirectories=/opt/minecraft/server
-ExecStart=sudo /usr/bin/java -Xmx1024M -Xms1024M -jar /opt/minecraft/server/server.jar nogui
-ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password stop
+
+# You can customize the maximum amount of memory as well as the JVM flags here
+ExecStart=/usr/bin/java -Xmx4048M -Xms1024M -jar server.jar --nojline --noconsole
+
+# Restart the server when it is stopped or crashed after 30 seconds
+# Comment out RestartSec if you want to restart immediately
+Restart=always
+RestartSec=30
+
+# Alternative: Restart the server only when it stops regularly
+# Restart=on-success
+
+# Do not remove this!
+StandardInput=null
 
 [Install]
 WantedBy=multi-user.target
