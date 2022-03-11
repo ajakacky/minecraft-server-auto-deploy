@@ -1,8 +1,8 @@
 instances:
   minecraft-server:
-    type: t3.medium
+    type: t3.xlarge
     key_name: minecraft
-    user_data: ./userdataUbuntu.sh
+    user_data: ./userdataMinecraft.sh
 
 tags:
   Name: Minecraft server

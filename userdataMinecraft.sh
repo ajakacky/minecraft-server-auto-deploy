@@ -9,11 +9,6 @@ echo 'export JAVA_HOME=/opt/jdk-17' | tee -a ~/.bashrc
 echo 'export PATH=$PATH:$JAVA_HOME/bin '|tee -a ~/.bashrc
 source ~/.bashrc
 
-
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install openjdk-17-jdk-headless -y
-
 java -version
 
 mkdir /opt/minecraft/
@@ -29,7 +24,7 @@ sudo make install
 # download the minecraft server
 mkdir /opt/minecraft/server/
 cd /opt/minecraft/server/
-wget https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar
+wget https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar
 
 # start up the server and fix the eula.txt file
 sudo java -Xmx1024M -Xms1024M -jar server.jar nogui
@@ -47,7 +42,7 @@ User=minecraft
 WorkingDirectory=/opt/minecraft/server
 
 # You can customize the maximum amount of memory as well as the JVM flags here
-ExecStart=/usr/bin/java -Xmx4048M -Xms1024M -jar server.jar --nojline --noconsole
+ExecStart=java -Xmx4048M -Xms1024M -jar server.jar --nojline --noconsole
 
 # Restart the server when it is stopped or crashed after 30 seconds
 # Comment out RestartSec if you want to restart immediately
