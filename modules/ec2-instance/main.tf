@@ -26,7 +26,7 @@ module iam_role {
   iam_policies    = [
     {
       name        = local.iam_policy_name
-      policy_json = jsonencode(file("${path.module}/templates/ec2_policy.tpl"))
+      policy_json = file("${path.module}/templates/ec2_policy.json")
     }
   ]
   iam_policy_arns = var.iam_policy_arns
