@@ -30,6 +30,7 @@ module iam_role {
     }
   ]
   iam_policy_arns = var.iam_policy_arns
+  principal       = { Service = [ "ec2.amazonaws.com" ]} 
 }
 
 resource aws_instance instance {
