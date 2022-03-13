@@ -2,7 +2,7 @@
 
 #install java
 
-wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
+wget -q https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
 tar xvf openjdk-17.0.2_linux-x64_bin.tar.gz
 sudo mv jdk-17.0.2/ /opt/jdk-17/
 echo 'export JAVA_HOME=/opt/jdk-17' | tee -a ~/.bashrc
@@ -24,7 +24,7 @@ sudo make install
 # download the minecraft server
 mkdir /opt/minecraft/server/
 cd /opt/minecraft/server/
-wget https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar
+wget -q https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar
 
 # start up the server and fix the eula.txt file
 sudo java -Xmx1024M -Xms1024M -jar server.jar nogui
