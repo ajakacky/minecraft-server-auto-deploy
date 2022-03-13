@@ -2,7 +2,6 @@
     "Version": "2012-10-17",
 	"Statement": [
         {
-            "Sid": "LogGroupAccess",
             "Effect": "Allow",
             "Actions": [
                 "logs:CreateLogGroup",
@@ -13,7 +12,6 @@
             "Resource": "*"
         },
         {
-            "Sid": "IamPassRole",
             "Effect": "Allow",
             "Action": "iam:PassRole",
             "Resource": "*",
