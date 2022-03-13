@@ -2,8 +2,11 @@
 
 #install java
 
-wget -q https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
-tar xvf openjdk-17.0.2_linux-x64_bin.tar.gz
+sudo apt update
+sudo apt install make
+
+sudo wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
+sudo tar xvf openjdk-17.0.2_linux-x64_bin.tar.gz
 sudo mv jdk-17.0.2/ /opt/jdk-17/
 echo 'export JAVA_HOME=/opt/jdk-17' | tee -a ~/.bashrc
 echo 'export PATH=$PATH:$JAVA_HOME/bin '|tee -a ~/.bashrc
@@ -14,17 +17,17 @@ java -version
 mkdir /opt/minecraft/
 
 # Run commands to install mcrcon, a tool that allows you to run commands for the minecraft server
-mkdir/opt/minecraft/tools/
+sudo mkdir /opt/minecraft/tools/
 cd /opt/minecraft/tools/
-git clone https://github.com/Tiiffi/mcrcon.git
+sudo git clone https://github.com/Tiiffi/mcrcon.git
 cd mcrcon
 make
 sudo make install
 
 # download the minecraft server
-mkdir /opt/minecraft/server/
+sudo mkdir /opt/minecraft/server/
 cd /opt/minecraft/server/
-wget -q https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar
+sudo wget https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar
 
 # start up the server and fix the eula.txt file
 sudo java -Xmx1024M -Xms1024M -jar server.jar nogui
