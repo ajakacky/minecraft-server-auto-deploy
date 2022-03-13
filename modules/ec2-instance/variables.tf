@@ -4,13 +4,7 @@ variable iam_policy_arns            { default = [] }
 variable ami_type                   { default = "amazon-linux-2" }
 variable admin_ips                  { default = ["0.0.0.0/0"] }
 variable member_ips                 { default = ["0.0.0.0/0"] }
-variable instance_lc                { default = {
-  shutdown = "00:00"
-  startup  = "08:00"
-}}
 variable key_name                   {}
-variable start_instance_lambda_file {}
-
 variable user_data                  {}
 variable subnet_id                  {}
 variable vpc_id                     {}
