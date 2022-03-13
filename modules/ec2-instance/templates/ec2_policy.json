@@ -10,9 +10,7 @@
                 "logs:PutLogEvents",
                 "logs:DescribeLogStreams"
             ],
-            "Resources": [
-                "*"
-            ]
+            "Resource": "*"
         },
         {
             "Sid": "IamPassRole",
