@@ -4,8 +4,8 @@
 		{
 			"Effect": "Allow",
 			"Action": "sts:AssumeRole",
-			"Principal": ${principal},
-			"Condition": ${condition}
+			"Principal": "${principal}",
+			"Condition": "${condition}"
 		}
 	]
 }
