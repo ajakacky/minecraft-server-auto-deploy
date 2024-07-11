@@ -1,8 +1,0 @@
-instances:
-  minecraft-server:
-    type: c5.xlarge
-    key_name: minecraft
-    user_data: ./userdataUbuntu.sh
-
-tags:
-  Name: Minecraft server
