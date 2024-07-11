@@ -3,3 +3,7 @@ env.sh
 __pycache__/
 *.pyc
 *.pem
+local mods/
+docker/mods/
+docker/data/
+.DS_Store

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  minecraft-server:
+    image: itzg/minecraft-server
+    ports:
+      - 25565:25565
+    environment:
+      EULA: true
+      VERSION: 1.20.1
+      TYPE: FABRIC
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+      - ./mods/1.20.1:/data/mods
