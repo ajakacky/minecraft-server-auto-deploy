@@ -1,7 +1,7 @@
 instances:
   minecraft-server:
     type: c5.xlarge
-    key_name: minecraft
+    key_name: new-minecraft
     user_data: ./userdataUbuntu.sh
 
 tags:
