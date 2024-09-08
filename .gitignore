@@ -7,3 +7,4 @@ local mods/
 docker/mods/
 docker/data/
 .DS_Store
+*.zip

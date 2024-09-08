@@ -13,3 +13,25 @@ services:
     volumes:
       - ./data:/data
       - ./mods/1.20.1:/data/mods
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+    ports:
+      - 8000:8000
+    volumes: 
+      - ./api/src:/app/src
+    command: 
+      - uvicorn
+      - src.main:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "8000"
+      - --reload
+    env_file:
+      - .env

@@ -15,3 +15,12 @@ module minecraft_instance {
   ]
   tags            = local.deploy.tags
 }
+
+module iam_role {
+  source          = "./modules/iam-role"
+  iam_role_name   = "minecraft-api-role"
+  iam_policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+  ]
+  principal       = { Service = [ "ec2.amazonaws.com" ]} 
+}
