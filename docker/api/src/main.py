@@ -1,16 +1,14 @@
 from fastapi import FastAPI
-from src.utils import get_server_info
+from src.services import get_server_info, get_all_ec2_instance_ids
 
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/servers")
 def read_root():
-    info = get_server_info()
-    print(info)
-    return {"Hello": "World"}
+    return get_all_ec2_instance_ids()
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/servers/{instance_id}/status")
+def read_item(instance_id: str):
+    return get_server_info(instance_id)

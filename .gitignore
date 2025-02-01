@@ -8,3 +8,7 @@ docker/mods/
 docker/data/
 .DS_Store
 *.zip
+server.tar.gz
+.DS_Store
+*.tar.gz
+app/

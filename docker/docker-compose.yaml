@@ -6,7 +6,7 @@ services:
       - 25565:25565
     environment:
       EULA: true
-      VERSION: 1.20.1
+      VERSION: 1.20.6
       TYPE: FABRIC
     env_file:
       - .env
