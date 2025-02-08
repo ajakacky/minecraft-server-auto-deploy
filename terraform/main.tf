@@ -6,7 +6,9 @@ module minecraft_instance {
   vpc_id          = var.vpc_id
   instance_type   = each.value.type
   key_name        = each.value.key_name
-  user_data       = file(each.value.user_data)
+  user_data       = templatefile(each.value.user_data, {
+    cf_api_key = var.cf_api_key
+  })
   admin_ips       = var.admin_ips
   member_ips      = var.member_ips
   ami_type        = "ubuntu"

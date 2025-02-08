@@ -3,6 +3,10 @@ instances:
     type: c5.xlarge
     key_name: new-minecraft
     user_data: ./userdataUbuntu.sh
+  prominence-minecraft-server:
+    type: c5.2xlarge
+    key_name: new-minecraft
+    user_data: ./userdataUbuntu.sh
 
 tags:
   Name: Minecraft server
